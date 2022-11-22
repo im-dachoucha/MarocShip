@@ -15,4 +15,8 @@
     <welcome-file-list>
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
+    <context-param>
+        <param-name>jakarta.faces.PROJECT_MAROCSHIP</param-name>
+        <param-value>Development</param-value>
+    </context-param>
 </web-app>
