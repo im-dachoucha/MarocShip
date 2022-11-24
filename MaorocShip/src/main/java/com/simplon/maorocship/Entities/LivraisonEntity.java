@@ -5,9 +5,11 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import java.io.Serializable;
+
 @Entity
 @Table(name = "livraison", schema = "public", catalog = "maoroc_ship")
-public class LivraisonEntity {
+public class LivraisonEntity implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -46,6 +48,7 @@ public class LivraisonEntity {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "id_resp_livraison")
     private RespLivraisonEntity respLivraison;
 

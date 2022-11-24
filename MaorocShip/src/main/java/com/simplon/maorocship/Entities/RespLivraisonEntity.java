@@ -1,7 +1,6 @@
 package com.simplon.maorocship.Entities;
 
 import jakarta.persistence.*;
-
 import java.io.Serializable;
 import java.util.Set;
 
