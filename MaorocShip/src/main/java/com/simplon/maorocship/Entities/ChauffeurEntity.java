@@ -30,8 +30,8 @@ public class ChauffeurEntity {
     private RespLivraisonEntity respLivraison;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "vehicule")
-    private Vehicule vehicule;
+    @JoinColumn(name = "chaffeur")
+    private VehiculeEntity vehicule;
 
     @OneToMany(mappedBy = "chauffeur", fetch = FetchType.LAZY)
     private Set<LivraisonEntity> livraisons;
@@ -43,12 +43,12 @@ public class ChauffeurEntity {
     public void setLivraisons(Set<LivraisonEntity> livraisons) {
         this.livraisons = livraisons;
     }
-
-    public Vehicule getVehicule() {
+  
+    public VehiculeEntity getVehicule() {
         return vehicule;
     }
 
-    public void setVehicule(Vehicule vehicule) {
+    public void setVehicule(VehiculeEntity vehicule) {
         this.vehicule = vehicule;
     }
 
