@@ -39,6 +39,21 @@ public class LivraisonEntity {
     private String zone;
 
 
+    @Basic
+    @Column(name = "created_at", nullable = false)
+    @ColumnDefault("CURRENT_TIMESTAMP")
+    private String created_at;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_resp_livraison")
+    private RespLivraisonEntity respLivraison;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(name = "id_chauffeur", nullable = true)
+    private ChauffeurEntity chauffeur;
+
     public long getId() {
         return id;
     }
@@ -111,19 +126,11 @@ public class LivraisonEntity {
         this.chauffeur = chauffeur;
     }
 
-    @Basic
-    @Column(name = "created_at", nullable = false)
-    @ColumnDefault("CURRENT_TIMESTAMP")
-    private String created_at;
+    public String getZone() {
+        return zone;
+    }
 
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_resp_livraison")
-    private RespLivraisonEntity respLivraison;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JoinColumn(name = "id_chauffeur", nullable = true)
-    private ChauffeurEntity chauffeur;
-
+    public void setZone(String zone) {
+        this.zone = zone;
+    }
 }
