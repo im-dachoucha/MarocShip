@@ -12,7 +12,7 @@ public class JpaService {
     private final EntityManagerFactory entityManagerFactory;
 
     public JpaService(){
-        entityManagerFactory = Persistence.createEntityManagerFactory("marjane");
+        entityManagerFactory = Persistence.createEntityManagerFactory("default");
     }
 
     public static synchronized JpaService getInstance(){
