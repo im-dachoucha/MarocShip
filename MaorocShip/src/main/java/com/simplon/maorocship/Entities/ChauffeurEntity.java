@@ -36,6 +36,14 @@ public class ChauffeurEntity {
     @OneToMany(mappedBy = "chauffeur", fetch = FetchType.LAZY)
     private Set<LivraisonEntity> livraisons;
 
+    public Set<LivraisonEntity> getLivraisons() {
+        return livraisons;
+    }
+
+    public void setLivraisons(Set<LivraisonEntity> livraisons) {
+        this.livraisons = livraisons;
+    }
+
     public Vehicule getVehicule() {
         return vehicule;
     }
