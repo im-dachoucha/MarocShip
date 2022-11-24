@@ -1,8 +1,5 @@
 package com.simplon.maorocship.Controllers;
 
-import com.simplon.maorocship.Beans.UserBean;
-import com.simplon.maorocship.Entities.User;
-import com.simplon.maorocship.dao.UserDao;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -11,18 +8,18 @@ import jakarta.inject.Named;
 @RequestScoped
 public class LoginController {
 
-    @Inject
-    UserBean userBean;
+//    @Inject
+//    UserBean userBean;
 
-    public void login() {
-        Integer n = null;
-        System.out.println("username : " + userBean.getUsername() + " | password : " + userBean.getPassword());
-
-        User user = new User();
-        user.setUsername(userBean.getUsername());
-        user.setPassword(userBean.getPassword());
-
-        UserDao userDao = new UserDao();
-        userDao.create(user);
-    }
+//    public void login() {
+//        Integer n = null;
+//        System.out.println("username : " + userBean.getUsername() + " | password : " + userBean.getPassword());
+//
+//        User user = new User();
+//        user.setUsername(userBean.getUsername());
+//        user.setPassword(userBean.getPassword());
+//
+//        UserDao userDao = new UserDao();
+//        userDao.create(user);
+//    }
 }
