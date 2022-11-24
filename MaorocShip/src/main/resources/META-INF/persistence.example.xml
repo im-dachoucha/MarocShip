@@ -5,11 +5,11 @@
              version="3.0">
     <persistence-unit name="default">
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3305/maroc_ship"/>
-            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-            <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value="123456"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+<!--            <property name="hibernate.connection.url" value="jdbc:mysql://[domaine]/[db_name]"/>-->
+<!--            <property name="hibernate.connection.driver_class" value="[db driver]"/>-->
+<!--            <property name="hibernate.connection.username" value="[username]"/>-->
+<!--            <property name="hibernate.connection.password" value="[password]"/>-->
+<!--            <property name="hibernate.hbm2ddl.auto" value="create"/>-->
         </properties>
     </persistence-unit>
 </persistence>
