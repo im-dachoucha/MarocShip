@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "vehicule", schema = "public", catalog = "maoroc_ship")
-public class Vehicule implements Serializable {
+public class VehiculeEntity implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -17,7 +17,7 @@ public class Vehicule implements Serializable {
     private String type;
 
     @OneToOne(mappedBy = "vehicule")
-    private Vehicule vehicule;
+    private ChauffeurEntity chauffeur;
 
     public long getId() {
         return id;
@@ -35,11 +35,11 @@ public class Vehicule implements Serializable {
         this.type = type;
     }
 
-    public Vehicule getVehicule() {
-        return vehicule;
+    public ChauffeurEntity getChauffeur() {
+        return chauffeur;
     }
 
-    public void setVehicule(Vehicule vehicule) {
-        this.vehicule = vehicule;
+    public void setChauffeur(ChauffeurEntity chauffeur) {
+        this.chauffeur = chauffeur;
     }
 }
