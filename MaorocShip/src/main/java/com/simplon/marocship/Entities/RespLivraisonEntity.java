@@ -1,12 +1,13 @@
-package com.simplon.maorocship.Entities;
+package com.simplon.marocship.Entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Table(name = "chauffeur", schema = "public", catalog = "maoroc_ship")
-public class ChauffeurEntity {
+@Table(name = "resp_livraison", schema = "public", catalog = "maroc_ship")
+public class RespLivraisonEntity implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -16,24 +17,17 @@ public class ChauffeurEntity {
     @Basic
     @Column(name = "name", nullable = false)
     private String name;
-
     @Basic
     @Column(name = "email", nullable = false, unique = true)
     private String email;
-
     @Basic
     @Column(name = "password", nullable = false)
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "resp_livraison")
-    private RespLivraisonEntity respLivraison;
+    @OneToMany(mappedBy = "respLivraison", fetch = FetchType.LAZY)
+    private Set<ChauffeurEntity> chauffeur;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "chaffeur")
-    private VehiculeEntity vehicule;
-
-    @OneToMany(mappedBy = "chauffeur", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "respLivraison",fetch = FetchType.LAZY)
     private Set<LivraisonEntity> livraisons;
 
     public Set<LivraisonEntity> getLivraisons() {
@@ -43,13 +37,13 @@ public class ChauffeurEntity {
     public void setLivraisons(Set<LivraisonEntity> livraisons) {
         this.livraisons = livraisons;
     }
-  
-    public VehiculeEntity getVehicule() {
-        return vehicule;
+
+    public Set<ChauffeurEntity> getChauffeur() {
+        return this.chauffeur;
     }
 
-    public void setVehicule(VehiculeEntity vehicule) {
-        this.vehicule = vehicule;
+    public void setChauffeur(Set<ChauffeurEntity> chauffeur) {
+        this.chauffeur = chauffeur;
     }
 
     public long getId() {
@@ -84,11 +78,5 @@ public class ChauffeurEntity {
         this.password = password;
     }
 
-    public RespLivraisonEntity getRespLivraison() {
-        return respLivraison;
-    }
 
-    public void setRespLivraison(RespLivraisonEntity respLivraison) {
-        this.respLivraison = respLivraison;
-    }
 }

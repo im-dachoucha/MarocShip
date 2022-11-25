@@ -1,4 +1,4 @@
-package com.simplon.maorocship.Controllers;
+package com.simplon.marocship.Controllers;
 
 public interface Person {
 

@@ -1,7 +1,6 @@
-package com.simplon.maorocship.Controllers;
+package com.simplon.marocship.Controllers;
 
 import jakarta.enterprise.context.RequestScoped;
-import jakarta.inject.Inject;
 import jakarta.inject.Named;
 
 @Named

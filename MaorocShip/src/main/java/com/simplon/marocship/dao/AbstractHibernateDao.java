@@ -1,6 +1,6 @@
-package com.simplon.maorocship.dao;
+package com.simplon.marocship.dao;
 
-import com.simplon.maorocship.services.JpaService;
+import com.simplon.marocship.services.JpaService;
 import java.io.Serializable;
 import java.util.List;
 

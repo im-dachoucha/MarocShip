@@ -1,4 +1,4 @@
-package com.simplon.maorocship.services;
+package com.simplon.marocship.services;
 
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;

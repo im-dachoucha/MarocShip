@@ -1,4 +1,4 @@
-package com.simplon.maorocship.Entities;
+package com.simplon.marocship.Entities;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Admin entity
  */
 @Entity
-@Table(name = "admin" , schema = "public" , catalog = "maoroc_ship")
+@Table(name = "admin" , schema = "public" , catalog = "maroc_ship")
 public class AdminEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

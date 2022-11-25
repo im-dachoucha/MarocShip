@@ -1,4 +1,4 @@
-package com.simplon.maorocship.services;
+package com.simplon.marocship.services;
 
 import javax.mail.Message;
 import javax.mail.Session;

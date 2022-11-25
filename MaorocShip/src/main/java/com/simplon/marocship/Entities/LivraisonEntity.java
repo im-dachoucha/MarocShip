@@ -1,4 +1,4 @@
-package com.simplon.maorocship.Entities;
+package com.simplon.marocship.Entities;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -6,7 +6,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
-@Table(name = "livraison", schema = "public", catalog = "maoroc_ship")
+@Table(name = "livraison", schema = "public", catalog = "maroc_ship")
 public class LivraisonEntity {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)

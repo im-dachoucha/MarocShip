@@ -1,13 +1,12 @@
-package com.simplon.maorocship.Entities;
+package com.simplon.marocship.Entities;
 
 import jakarta.persistence.*;
 
-import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Table(name = "resp_livraison", schema = "public", catalog = "maoroc_ship")
-public class RespLivraisonEntity implements Serializable {
+@Table(name = "chauffeur", schema = "public", catalog = "maroc_ship")
+public class ChauffeurEntity {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -17,17 +16,24 @@ public class RespLivraisonEntity implements Serializable {
     @Basic
     @Column(name = "name", nullable = false)
     private String name;
+
     @Basic
     @Column(name = "email", nullable = false, unique = true)
     private String email;
+
     @Basic
     @Column(name = "password", nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "respLivraison", fetch = FetchType.LAZY)
-    private Set<ChauffeurEntity> chauffeur;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "resp_livraison")
+    private RespLivraisonEntity respLivraison;
 
-    @OneToMany(mappedBy = "respLivraison",fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "chaffeur")
+    private VehiculeEntity vehicule;
+
+    @OneToMany(mappedBy = "chauffeur", fetch = FetchType.LAZY)
     private Set<LivraisonEntity> livraisons;
 
     public Set<LivraisonEntity> getLivraisons() {
@@ -37,13 +43,13 @@ public class RespLivraisonEntity implements Serializable {
     public void setLivraisons(Set<LivraisonEntity> livraisons) {
         this.livraisons = livraisons;
     }
-
-    public Set<ChauffeurEntity> getChauffeur() {
-        return this.chauffeur;
+  
+    public VehiculeEntity getVehicule() {
+        return vehicule;
     }
 
-    public void setChauffeur(Set<ChauffeurEntity> chauffeur) {
-        this.chauffeur = chauffeur;
+    public void setVehicule(VehiculeEntity vehicule) {
+        this.vehicule = vehicule;
     }
 
     public long getId() {
@@ -78,5 +84,11 @@ public class RespLivraisonEntity implements Serializable {
         this.password = password;
     }
 
+    public RespLivraisonEntity getRespLivraison() {
+        return respLivraison;
+    }
 
+    public void setRespLivraison(RespLivraisonEntity respLivraison) {
+        this.respLivraison = respLivraison;
+    }
 }
