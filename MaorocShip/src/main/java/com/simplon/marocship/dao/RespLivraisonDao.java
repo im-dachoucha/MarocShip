@@ -1,6 +1,7 @@
 package com.simplon.marocship.dao;
 
 import com.simplon.marocship.Entities.RespLivraisonEntity;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class RespLivraisonDao  extends AbstractHibernateDao<RespLivraisonEntity> {
     private Class<RespLivraisonEntity> clazz;
@@ -17,6 +18,12 @@ public class RespLivraisonDao  extends AbstractHibernateDao<RespLivraisonEntity>
         });
     }
 
-    // update password
+    public boolean hashPasswordThenCreat(RespLivraisonEntity respLivraisonEntity) {
+        respLivraisonEntity.setPassword(BCrypt.hashpw(respLivraisonEntity.getPassword(), BCrypt.gensalt()));
+        return jpaService.runInTransaction(entityManager -> {
+            entityManager.persist(respLivraisonEntity);
+            return true;
+        });
+    }
 }
 
