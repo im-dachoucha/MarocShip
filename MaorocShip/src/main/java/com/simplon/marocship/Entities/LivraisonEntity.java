@@ -1,4 +1,4 @@
-package com.simplon.maorocship.Entities;
+package com.simplon.marocship.Entities;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.ColumnDefault;
@@ -8,7 +8,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "livraison", schema = "public", catalog = "maoroc_ship")
+@Table(name = "livraison", schema = "public", catalog = "maroc_ship")
 public class LivraisonEntity implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)

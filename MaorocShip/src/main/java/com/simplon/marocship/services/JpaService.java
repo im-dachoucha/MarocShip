@@ -1,4 +1,4 @@
-package com.simplon.maorocship.services;
+package com.simplon.marocship.services;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;

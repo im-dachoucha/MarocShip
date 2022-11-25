@@ -1,11 +1,11 @@
-package com.simplon.maorocship.Entities;
+package com.simplon.marocship.Entities;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
 @Entity
-@Table(name = "resp_livraison", schema = "public", catalog = "maoroc_ship")
+@Table(name = "resp_livraison", schema = "public", catalog = "maroc_ship")
 public class RespLivraisonEntity implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)

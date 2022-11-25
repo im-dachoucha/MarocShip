@@ -1,6 +1,6 @@
-package com.simplon.maorocship.dao;
+package com.simplon.marocship.dao;
 
-import com.simplon.maorocship.Entities.LivraisonEntity;
+import com.simplon.marocship.Entities.LivraisonEntity;
 
 public class LivraisonDao extends AbstractHibernateDao<LivraisonEntity> {
     private Class<LivraisonEntity> clazz;

@@ -1,10 +1,10 @@
-package com.simplon.maorocship.Entities;
+package com.simplon.marocship.Entities;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "vehicule", schema = "public", catalog = "maoroc_ship")
+@Table(name = "vehicule", schema = "public", catalog = "maroc_ship")
 public class VehiculeEntity implements Serializable {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)

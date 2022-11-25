@@ -1,4 +1,4 @@
-package com.simplon.maorocship.Beans;
+package com.simplon.marocship.Beans;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;

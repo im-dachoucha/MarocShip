@@ -1,6 +1,6 @@
-package com.simplon.maorocship.dao;
+package com.simplon.marocship.dao;
 
-import com.simplon.maorocship.Entities.AdminEntity;
+import com.simplon.marocship.Entities.AdminEntity;
 
 public class AdminDao extends AbstractHibernateDao<AdminEntity> {
     private Class<AdminEntity> clazz;

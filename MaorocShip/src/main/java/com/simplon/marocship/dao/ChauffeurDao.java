@@ -1,6 +1,6 @@
-package com.simplon.maorocship.dao;
+package com.simplon.marocship.dao;
 
-import com.simplon.maorocship.Entities.ChauffeurEntity;
+import com.simplon.marocship.Entities.ChauffeurEntity;
 
 public class ChauffeurDao extends AbstractHibernateDao<ChauffeurEntity> {
     private Class<ChauffeurEntity> clazz;
