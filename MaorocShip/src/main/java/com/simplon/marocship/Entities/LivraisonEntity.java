@@ -1,11 +1,11 @@
 package com.simplon.marocship.Entities;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "livraison", schema = "public", catalog = "maroc_ship")
@@ -21,12 +21,12 @@ public class LivraisonEntity implements Serializable {
     private String date;
 
     @Basic
-    @Column(name = "from", nullable = false)
-    private String from;
+    @Column(name = "beginning", nullable = false)
+    private String beginning;
 
     @Basic
-    @Column(name = "to", nullable = false)
-    private String to;
+    @Column(name = "destination", nullable = false)
+    private String destination;
 
     @Basic
     @Column(name = "weight", nullable = false)
@@ -43,8 +43,7 @@ public class LivraisonEntity implements Serializable {
 
     @Basic
     @Column(name = "created_at", nullable = false)
-    @ColumnDefault("CURRENT_TIMESTAMP")
-    private String created_at;
+    private LocalDate created_at = LocalDate.now();
 
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -73,20 +72,20 @@ public class LivraisonEntity implements Serializable {
         this.date = date;
     }
 
-    public String getFrom() {
-        return from;
+    public String getBeginning() {
+        return beginning;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setBeginning(String beginning) {
+        this.beginning = LivraisonEntity.this.beginning;
     }
 
-    public String getTo() {
-        return to;
+    public String getDestination() {
+        return destination;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setDestination(String destination) {
+        this.destination = LivraisonEntity.this.destination;
     }
 
     public String getWeight() {
@@ -105,11 +104,12 @@ public class LivraisonEntity implements Serializable {
         this.status = status;
     }
 
-    public String getCreated_at() {
+
+    public LocalDate getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(String created_at) {
+    public void setCreated_at(LocalDate created_at) {
         this.created_at = created_at;
     }
 
