@@ -11,7 +11,7 @@ public class ChauffeurDao extends AbstractHibernateDao<ChauffeurEntity> {
 
     public ChauffeurEntity findByEmail(String email) {
         return jpaService.runInTransaction(entityManager -> {
-            return (ChauffeurEntity) entityManager.createQuery("from " + clazz.getName() + " where email = :email")
+            return entityManager.createQuery("select c from ChauffeurEntity c where c.email = :email", ChauffeurEntity.class)
                     .setParameter("email", email)
                     .getSingleResult();
         });

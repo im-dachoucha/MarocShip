@@ -12,7 +12,7 @@ public class RespLivraisonDao  extends AbstractHibernateDao<RespLivraisonEntity>
 
     public RespLivraisonEntity findByEmail(String email) {
         return jpaService.runInTransaction(entityManager -> {
-            return (RespLivraisonEntity) entityManager.createQuery("from " + clazz.getName() + " where email = :email")
+            return entityManager.createQuery("select r from RespLivraisonEntity r where r.email = :email", RespLivraisonEntity.class)
                     .setParameter("email", email)
                     .getSingleResult();
         });

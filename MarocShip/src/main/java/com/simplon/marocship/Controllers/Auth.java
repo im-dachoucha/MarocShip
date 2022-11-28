@@ -58,6 +58,8 @@ public class Auth implements Serializable {
                             return true;
                         }
                     }else {
+                        ExternalContext externalContext = jakarta.faces.context.FacesContext.getCurrentInstance().getExternalContext();
+                        externalContext.redirect(externalContext.getRequestContextPath() + "/");
                         userBean.setMsg("Email ou mot de passe incorrect");
                     }
                 } catch (Exception e) {
