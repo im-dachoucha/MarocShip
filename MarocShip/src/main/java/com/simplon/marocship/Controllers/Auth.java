@@ -10,6 +10,7 @@ import com.simplon.marocship.dao.ChauffeurDao;
 import com.simplon.marocship.dao.RespLivraisonDao;
 import com.simplon.marocship.services.Security;
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.context.ExternalContext;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import java.io.Serializable;
@@ -47,6 +48,13 @@ public class Auth implements Serializable {
                     if (respLivraisonEntity != null) {
                         if (Security.checkPassword(userBean.getPassword(), respLivraisonEntity.getPassword())) {
                             userBean.setRespLivraisonEntity(respLivraisonEntity);
+                            ExternalContext externalContext = jakarta.faces.context.FacesContext.getCurrentInstance().getExternalContext();
+                            externalContext.getSessionMap().put("respLivraison", respLivraisonEntity);
+                            try {
+                                externalContext.redirect(externalContext.getRequestContextPath() + "/dashboard.xhtml");
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                             return true;
                         }
                     }else {
@@ -72,6 +80,7 @@ public class Auth implements Serializable {
             default:
                 return false;
         }
+
     }
 
 }

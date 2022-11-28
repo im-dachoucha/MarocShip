@@ -25,5 +25,7 @@ public class RespLivraisonDao  extends AbstractHibernateDao<RespLivraisonEntity>
             return true;
         });
     }
+
+
 }
 
