@@ -14,7 +14,6 @@ public abstract class AbstractHibernateDao<T extends Serializable> {
 
     private Class<T> clazz;
 
-    protected String tableName;
     protected static JpaService jpaService = JpaService.getInstance();
     public void setClazz(Class<T> clazzToSet) {
         this.clazz = clazzToSet;

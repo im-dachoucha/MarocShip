@@ -11,7 +11,7 @@ public class AdminDao extends AbstractHibernateDao<AdminEntity> {
 
     public AdminEntity findByEmail(String email) {
         return jpaService.runInTransaction(entityManager -> {
-            return (AdminEntity) entityManager.createQuery("from " + clazz.getName() + " where email = :email")
+            return (AdminEntity) entityManager.createQuery("select a from AdminEntity a where a.email = :email")
                     .setParameter("email", email)
                     .getSingleResult();
         });
