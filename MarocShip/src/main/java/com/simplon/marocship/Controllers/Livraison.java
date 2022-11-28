@@ -2,7 +2,9 @@ package com.simplon.marocship.Controllers;
 
 import com.simplon.marocship.Beans.LivraisonBean;
 import com.simplon.marocship.Beans.UserBean;
+import com.simplon.marocship.Entities.ChauffeurEntity;
 import com.simplon.marocship.Entities.LivraisonEntity;
+import com.simplon.marocship.dao.ChauffeurDao;
 import com.simplon.marocship.dao.LivraisonDao;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
@@ -32,8 +34,23 @@ public class Livraison {
         livraisonEntity.setWeight(String.valueOf(livraisonBean.getPoids()));
         livraisonEntity.setZone(livraisonBean.getZone());
         livraisonEntity.setDate(livraisonBean.getDate());
+        livraisonEntity.setStatus("en attente");
         // create livraison using dao
         LivraisonDao livraisonDao = new LivraisonDao();
         return livraisonDao.create(livraisonEntity);
+    }
+
+    public boolean updateLivraisonChauffeur(){
+        LivraisonEntity livraisonEntity = new LivraisonDao().findOne(livraisonBean.getId());
+        ChauffeurEntity chauffeurEntity = new ChauffeurDao().findOne(livraisonBean.getChauffeurId());
+        LivraisonDao livraisonDao = new LivraisonDao();
+        livraisonEntity.setChauffeur(chauffeurEntity);
+        try {
+            livraisonDao.update(livraisonEntity);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

@@ -5,7 +5,7 @@ import jakarta.inject.Named;
 
 @Named
 @RequestScoped
-public class Chauffeur {
+public class ChauffeurBean {
 
     private String name;
 

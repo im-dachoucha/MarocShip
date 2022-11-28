@@ -7,6 +7,26 @@ import jakarta.inject.Named;
 @RequestScoped
 public class LivraisonBean {
 
+    private long id;
+
+    public long getChauffeurId() {
+        return chauffeurId;
+    }
+
+    public void setChauffeurId(long chauffeurId) {
+        this.chauffeurId = chauffeurId;
+    }
+
+    private long chauffeurId;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     private String lieuxDepart;
 
     private String lieuxArrive;
